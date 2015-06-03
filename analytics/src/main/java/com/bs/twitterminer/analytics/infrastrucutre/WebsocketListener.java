@@ -11,6 +11,7 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,7 @@ public class WebsocketListener {
 
     @MessageMapping("/search")
     public void receive(@Header(value = SIMP_SESSION_ID) String sessionId, SearchCriteria searchCriteria) throws Exception {
-        log.info("Received websocket message: {}", searchCriteria);
+        log.info("Received websocket message: {} from client {}", searchCriteria, sessionId);
         Preconditions.checkNotNull(searchCriteria);
         Preconditions.checkNotNull(searchCriteria.getCriteria());
         List<String> keywordTokens = new ArrayList<>(StringUtils.commaDelimitedListToSet(searchCriteria.getCriteria()));

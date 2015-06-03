@@ -58,9 +58,12 @@ public class TwitterStreamServiceImpl implements StreamService {
     @Override
     public void deleteStream(String streamId) {
         Preconditions.checkNotNull(streamId);
-        Preconditions.checkState(streamInstances.containsKey(streamId), "Stream id not found");
-        TwitterStream stream = streamInstances.remove(streamId);
-        stream.cleanUp();
-        log.info("Stream {} has been deleted.", streamId);
+        if (streamInstances.containsKey(streamId)) {
+            TwitterStream stream = streamInstances.remove(streamId);
+            stream.cleanUp();
+            log.info("Stream {} has been deleted.", streamId);
+        } else {
+            log.warn("Stream {} has not been found.", streamId);
+        }
     }
 }

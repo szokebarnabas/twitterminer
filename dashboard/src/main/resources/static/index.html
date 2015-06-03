@@ -18,10 +18,10 @@
         function connect() {
             var socket = new SockJS('http://localhost:8050/search');
             stompClient = Stomp.over(socket);
-            stompClient.connect({}, function(frame) {
+            stompClient.connect('guest','user', function(frame) {
                 setConnected(true);
                 console.log('Connected: ' + frame);
-                stompClient.subscribe('/topic/tweets', function(tweet){
+                stompClient.subscribe('/queue/tweets', function(tweet){
                     showGreeting(JSON.parse(tweet.body).text);
                 });
             });

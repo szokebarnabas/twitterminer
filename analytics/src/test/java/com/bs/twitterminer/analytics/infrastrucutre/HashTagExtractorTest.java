@@ -23,4 +23,24 @@ public class HashTagExtractorTest {
         assertNotNull(result);
         assertThat(result, Matchers.allOf(hasEntry(is("#Poker"), is(3L)), Matchers.hasEntry(is("#Casino"), is(2L))));
     }
+
+    @Test
+    public void testExtractSplitsRemovesCommas() {
+        //act
+        Map<String, Long> result = testObj.extract("#dog,#cat,#cat,#dog,#dog,#dog,#cat,#cat,#dog");
+
+        //assert
+        assertNotNull(result);
+        assertThat(result, Matchers.allOf(hasEntry(is("#dog"), is(5L)), Matchers.hasEntry(is("#cat"), is(4L))));
+    }
+
+    @Test
+    public void testExtractRemovesNewLines() {
+        //act
+        Map<String, Long> result = testObj.extract("#dog #cat\n\r#cat #cat   #dog");
+
+        //assert
+        assertNotNull(result);
+        assertThat(result, Matchers.allOf(hasEntry(is("#dog"), is(2L)), Matchers.hasEntry(is("#cat"), is(3L))));
+    }
 }
