@@ -12,13 +12,7 @@ import static java.util.stream.Collectors.groupingBy;
 @Component
 public class HashTagExtractor {
 
-    private String tweet;
-
-    public HashTagExtractor(String tweet) {
-        this.tweet = tweet;
-    }
-
-    public Map<String, Long> extract() {
+    public Map<String, Long> extract(String tweet) {
         Map<String, Long> tokens = Splitter.on(" ").splitToList(tweet).stream()
                 .filter(token -> token.startsWith("#"))
                 .collect(groupingBy(identity(), counting()));

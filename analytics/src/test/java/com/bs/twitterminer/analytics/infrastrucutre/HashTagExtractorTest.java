@@ -12,15 +12,12 @@ import static org.junit.Assert.assertThat;
 
 public class HashTagExtractorTest {
 
-    private HashTagExtractor testObj;
+    private HashTagExtractor testObj = new HashTagExtractor();
 
     @Test
     public void testExtractCollectsAllHasTags() {
-        //setup
-        testObj = new HashTagExtractor("#Poker bla bla #Casino bla poker blab bla #Casino #Poker #Poker");
-
         //act
-        Map<String, Long> result = testObj.extract();
+        Map<String, Long> result = testObj.extract("#Poker bla bla #Casino bla poker blab bla #Casino #Poker #Poker");
 
         //assert
         assertNotNull(result);

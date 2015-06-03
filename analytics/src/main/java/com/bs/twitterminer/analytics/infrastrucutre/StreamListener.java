@@ -18,9 +18,11 @@ public class StreamListener {
 
     @Autowired
     private HashTagExtractor hashTagExtractor;
+
     @RabbitListener(queues = TWEETS_QUEUE)
     public void onNotification(Message<String> tweet) {
         log.info("Received: {}", tweet.getPayload());
-        simpMessagingTemplate.convertAndSend("/topic/tweets", tweet.getPayload());
+        String payload = tweet.getPayload();
+        simpMessagingTemplate.convertAndSend("/topic/tweets", payload);
     }
 }
