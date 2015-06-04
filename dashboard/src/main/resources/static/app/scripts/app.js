@@ -1,12 +1,22 @@
 'use strict';
 
+/**
+ * @ngdoc overview
+ * @name twitterminerApp
+ * @description
+ * # twitterminerApp
+ *
+ * Main module of the application.
+ */
 angular
-  .module('app', [
+  .module('twitterminerApp', [
+    'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngSanitize',
     'ngRoute',
-    'ui.bootstrap'
+    'ngSanitize',
+    'ngTouch',
+    'springChat.services'
   ])
   .config(function ($routeProvider) {
     $routeProvider
