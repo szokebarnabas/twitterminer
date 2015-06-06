@@ -2,8 +2,9 @@
 
 /* Services */
 
-angular.module('springChat.services', [])
-    .factory('ChatSocket', ['$rootScope', function($rootScope) {
+var services = angular.module('springChat.services', []);
+
+services.factory('ChatSocket', ['$rootScope', function($rootScope) {
         var stompClient;
 
         var wrappedSocket = {
@@ -38,3 +39,14 @@ angular.module('springChat.services', [])
         return wrappedSocket;
 
     }]);
+
+
+services.factory('UserFactory', function ($resource) {
+  return $resource('http://localhost:8761/eureka/apps', {}, {
+    query: {
+      method: 'GET',
+      params: {},
+      isArray: false
+    }
+  })
+});

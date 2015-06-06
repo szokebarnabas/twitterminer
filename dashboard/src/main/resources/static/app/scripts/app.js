@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var app = angular
   .module('twitterminerApp', [
     'ngAnimate',
     'ngCookies',
@@ -17,16 +17,20 @@ angular
     'ngSanitize',
     'ngTouch',
     'springChat.services'
-  ])
-  .config(function ($routeProvider) {
+  ]);
+  app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/statistics', {
+        templateUrl: 'views/statistics.html',
+        controller: 'StatisticsCtrl'
+      })
+      .when('/admin', {
+        templateUrl: 'views/admin.html',
+        controller: 'AdminCtrl'
       })
       .otherwise({
         redirectTo: '/'
