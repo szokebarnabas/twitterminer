@@ -1,7 +1,6 @@
 package com.bs.twitterminer.analytics.infrastrucutre;
 
-import com.bs.twitterminer.analytics.domain.AnalyticsService;
-import com.bs.twitterminer.analytics.domain.HashTags;
+import com.bs.twitterminer.analytics.domain.HashTagRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEvent;
@@ -13,13 +12,13 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 
 @Slf4j
 @Component
-public class ConnectionListener implements ApplicationListener<ApplicationEvent> {
+public class WebSocketConnectionListener implements ApplicationListener<ApplicationEvent> {
 
     @Autowired
-    private HashTags hashTags;
+    private HashTagRepository hashTagRepository;
 
     @Autowired
-    private AnalyticsService analyticsService;
+    private StreamService streamService;
 
     @Override
     public void onApplicationEvent(ApplicationEvent event) {
@@ -32,17 +31,19 @@ public class ConnectionListener implements ApplicationListener<ApplicationEvent>
 
     private void handleSessionDisconnect(SessionDisconnectEvent event) {
         SimpMessageHeaderAccessor headers = SimpMessageHeaderAccessor.wrap(event.getMessage());
+//        String username = headers.getUser().getName();
         String sessionId = headers.getSessionId();
-        log.info("Disconnect [sessionId: " + sessionId + "]");
-        hashTags.removeClient(sessionId);
-        analyticsService.sendStopStreamCommand(sessionId);
+        log.info("Disconnect [sessionId={}]", sessionId);
+        hashTagRepository.removeClient(sessionId);
+        streamService.sendStopStreamCommand(sessionId);
     }
 
     private void handleSessionConnected(SessionConnectEvent event) {
         SimpMessageHeaderAccessor headers = SimpMessageHeaderAccessor.wrap(event.getMessage());
+//        String username = headers.getUser().getName();
         String sessionId = headers.getSessionId();
-        log.info("Connect [sessionId: " + sessionId + "]");
-        hashTags.addClient(sessionId);
+        log.info("Connect [sessionId={}]", sessionId);
+        hashTagRepository.addClient(sessionId);
 
     }
 }

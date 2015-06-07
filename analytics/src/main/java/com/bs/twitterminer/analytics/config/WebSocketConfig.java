@@ -7,7 +7,7 @@ import org.springframework.web.socket.config.annotation.AbstractWebSocketMessage
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 
-import com.bs.twitterminer.analytics.infrastrucutre.ConnectionListener;
+import com.bs.twitterminer.analytics.infrastrucutre.WebSocketConnectionListener;
 
 @Configuration
 @EnableWebSocketMessageBroker
@@ -28,8 +28,8 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
     }
 
     @Bean
-    public ConnectionListener presenceEventListener() {
-        ConnectionListener presence = new ConnectionListener();
+    public WebSocketConnectionListener presenceEventListener() {
+        WebSocketConnectionListener presence = new WebSocketConnectionListener();
         return presence;
     }
 }

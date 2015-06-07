@@ -1,8 +1,8 @@
-package com.bs.twitterminer.analytics.domain;
+package com.bs.twitterminer.analytics.infrastrucutre;
 
 import java.util.List;
 
-public interface AnalyticsService {
+public interface StreamService {
     void sendStartStreamCommand(String streamId, List<String> keywords);
     void sendStopStreamCommand(String streamId);
 }

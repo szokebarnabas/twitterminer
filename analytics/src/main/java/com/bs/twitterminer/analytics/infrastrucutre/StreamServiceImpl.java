@@ -1,6 +1,5 @@
 package com.bs.twitterminer.analytics.infrastrucutre;
 
-import com.bs.twitterminer.analytics.domain.AnalyticsService;
 import com.google.common.base.Preconditions;
 import lombok.extern.slf4j.Slf4j;
 import org.bs.messaging.MessagingService;
@@ -13,7 +12,7 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class AnalyticsServiceImpl implements AnalyticsService {
+public class StreamServiceImpl implements StreamService {
 
     private static final String COMMANDS_QUEUE = "commands";
 

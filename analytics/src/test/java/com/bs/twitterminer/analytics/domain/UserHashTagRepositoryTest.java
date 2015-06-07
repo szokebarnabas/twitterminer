@@ -12,7 +12,7 @@ import java.util.Map;
 import static org.hamcrest.collection.IsMapContaining.hasEntry;
 import static org.hamcrest.core.Is.is;
 
-public class UserHashTagsTest {
+public class UserHashTagRepositoryTest {
 
     private UserHashTags testObj = new UserHashTags();
 
