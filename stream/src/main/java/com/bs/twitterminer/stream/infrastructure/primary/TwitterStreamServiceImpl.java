@@ -42,7 +42,8 @@ public class TwitterStreamServiceImpl implements StreamService {
             stream.addListener(new StatusAdapter() {
                 @Override
                 public void onStatus(Status status) {
-                    Tweet tweet = tweetAssembler.createTweet(status.getId(), status.getUser().getName(), status.getCreatedAt(), status.getText(), clientId);
+                    String profileImageUrl = status.getUser().getProfileImageURL();
+                    Tweet tweet = tweetAssembler.createTweet(status.getId(), status.getUser().getName(), status.getCreatedAt(), status.getText(), clientId, profileImageUrl, keywords);
                     messagingService.send(TWEETS_QUEUE, tweet);
                 }
             });

@@ -26,11 +26,11 @@ var app = angular
       })
       .when('/statistics', {
         templateUrl: 'views/statistics.html',
-        controller: 'StatsCtrl'
+        controller: 'MainCtrl'
       })
       .when('/admin', {
         templateUrl: 'views/admin.html',
-        controller: 'MainCtrl'
+        controller: 'AdminCtrl'
       })
       .otherwise({
         redirectTo: '/'

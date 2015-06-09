@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="com.bs.twitterminer.analytics.infrastrucutre.HashTagExtractorTest" time="0.066" errors="0" skipped="0">
+<testsuite tests="1" failures="0" name="com.bs.twitterminer.analytics.domain.UserStatisticsRepositoryTest" time="0.008" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_11.jdk/Contents/Home/jre/lib"/>
@@ -62,7 +62,5 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.bs.twitterminer.analytics.infrastrucutre.HashTagExtractorTest" name="testExtractSplitsRemovesCommas" time="0.065"/>
-  <testcase classname="com.bs.twitterminer.analytics.infrastrucutre.HashTagExtractorTest" name="testExtractRemovesNewLines" time="0"/>
-  <testcase classname="com.bs.twitterminer.analytics.infrastrucutre.HashTagExtractorTest" name="testExtractCollectsAllHasTags" time="0.001"/>
+  <testcase classname="com.bs.twitterminer.analytics.domain.UserStatisticsRepositoryTest" name="testSumHashTags" time="0.008"/>
 </testsuite>

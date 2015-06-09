@@ -1,7 +1,7 @@
 package com.bs.twitterminer.analytics.infrastrucutre;
 
 import com.bs.twitterminer.analytics.domain.Client;
-import com.bs.twitterminer.analytics.domain.HashTagRepository;
+import com.bs.twitterminer.analytics.domain.StatisticsRepository;
 import com.bs.twitterminer.analytics.domain.UserHashTags;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class WebSocketConnectionListener implements ApplicationListener<Applicat
     private static final String CLIENT_ID = "client-id";
     private static final String SIMP_SESSION_ID = "simpSessionId";
     @Autowired
-    private HashTagRepository hashTagRepository;
+    private StatisticsRepository statisticsRepository;
 
     @Autowired
     private StreamService streamService;
@@ -41,18 +41,18 @@ public class WebSocketConnectionListener implements ApplicationListener<Applicat
         String clientId = headers.getNativeHeader(CLIENT_ID).get(0);
         String sessionId = (String)headers.getHeader(SIMP_SESSION_ID);
         log.info("Connect [clientId={}]", clientId);
-        hashTagRepository.addClient(sessionId, clientId);
+        statisticsRepository.addClient(sessionId, clientId);
 
     }
 
     private void handleSessionDisconnect(SessionDisconnectEvent event) {
         SimpMessageHeaderAccessor headers = SimpMessageHeaderAccessor.wrap(event.getMessage());
         String sessionId = (String)headers.getHeader(SIMP_SESSION_ID);
-        Optional<Map.Entry<Client, UserHashTags>> optional = hashTagRepository.hashTagEntry(sessionId);
+        Optional<Map.Entry<Client, UserHashTags>> optional = statisticsRepository.hashTagEntry(sessionId);
         if (optional.isPresent()) {
             String clientId = optional.get().getKey().getClientId();
             log.info("Disconnect [clientId={}]", clientId);
-            hashTagRepository.removeClientBySessionId(optional.get().getKey().getSessionId());
+            statisticsRepository.removeClientBySessionId(optional.get().getKey().getSessionId());
             streamService.sendStopStreamCommand(clientId);
         } else {
             log.warn("Cannot find client by session id: {}", sessionId);

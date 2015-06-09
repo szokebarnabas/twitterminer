@@ -1,2 +1,3 @@
-com/bs/twitterminer/analytics/domain/UserHashTagRepositoryTest.class
+com/bs/twitterminer/analytics/infrastrucutre/KeywordStatisticsTest.class
 com/bs/twitterminer/analytics/infrastrucutre/HashTagExtractorTest.class
+com/bs/twitterminer/analytics/domain/UserStatisticsRepositoryTest.class

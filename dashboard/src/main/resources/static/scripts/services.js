@@ -41,7 +41,7 @@ services.factory('ChatSocket', ['$rootScope', function ($rootScope) {
 
 
 services.factory('UserFactory', function ($resource) {
-    return $resource('http://localhost:8761/eureka/apps', {}, {
+    return $resource('http://localhost:8090/zuul/eureka/eureka/apps', {}, {
         query: {
             method: 'GET',
             params: {},
@@ -55,11 +55,9 @@ services.factory('tweetStore', function () {
     var tweets = [];
     return {
         tweets: function () {
-            // This exposed private data
             return tweets;
         },
         addTweet: function (tweet) {
-            //console.log("addTweet:" + tweet);
             tweets.unshift(tweet);
         },
         clear: function () {
@@ -73,11 +71,9 @@ services.factory('connectionService', function () {
 
     return {
         isConnected: function () {
-            console.log("isConnected:" + connected);
             return connected;
         },
         setConnected: function (isConnected) {
-            console.log("setConnected:" + isConnected);
             connected = isConnected;
         }
     };
@@ -101,15 +97,27 @@ services.factory('UUIDGenerator', function () {
     };
 })
 
+services.factory('hashTagStore', function () {
+    var hashTags;
+    return {
+        getStats: function () {
+            return hashTags;
+        },
+        setStats: function (stats) {
+            hashTags = stats;
+        },
+        clear: function () {
+            hashTags = [];
+        }
+    };
+})
 services.factory('tweetstatsStore', function () {
     var tweetsStats;
     return {
         getStats: function () {
-            console.log("tweetstatsStore | getStats:" + tweetsStats);
             return tweetsStats;
         },
         setStats: function (stats) {
-            console.log("tweetstatsStore | setStats:" + stats);
             tweetsStats = stats;
         },
         clear: function () {

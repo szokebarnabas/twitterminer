@@ -1,45 +1,41 @@
 <div class="container">
     <row>
         <h4>HashTag statistics</h4>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>HashTag</th>
-                <th>Occurrence</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>#Poker</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>#Tournament</td>
-                <td>1</td>
-            </tr>
-            </tbody>
-        </table>
+
+        <div class="achievements-wrapper">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>HashTag</th>
+                    <th>Occurrence</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(key, value) in hashTagStats.summarizedHashTags">
+                    <td>{{key}}</td>
+                    <td>{{value}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </row>
     <row>
-        Stats = {{stats}}
         <h4>Tweet statistics</h4>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Keyword</th>
-                <th>Occurrence</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>poker</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>tournament</td>
-                <td>2</td>
-            </tr>
-            </tbody>
-        </table>
+        <div class="achievements-wrapper">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Keyword</th>
+                    <th>Occurrence</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="(key, value) in tweetStats">
+                    <td>{{key}}</td>
+                    <td>{{value}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </row>
 </div>

@@ -7,6 +7,7 @@
 
 body {
   padding: 0;
+  font-size: 16px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -81,3 +82,11 @@ body {
     border-bottom: 0;
   }
 }
+
+/*tbody{*/
+    /*overflow-y: scroll;*/
+    /*height: 300px;*/
+    /*position: relative;*/
+/*}*/
+
+.achievements-wrapper { height: 450px; overflow: auto; }

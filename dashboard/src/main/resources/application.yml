@@ -1,6 +1,12 @@
 server:
   port: ${vcap.application.port:8090}
 
+zuul:
+  routes:
+    resource:
+      path: /eureka/**
+      url: http://localhost:8761
+
 
 eureka:
   client:

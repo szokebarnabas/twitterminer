@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: org.bs.messaging.JsonMessageSerializerTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.041 sec
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.124 sec

@@ -1,4 +1,26 @@
-<p>Admin</p>
-<div>
-  {{healthStatus}}
+<div class="container">
+    <row>
+        <h4>Microservices</h4>
+
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Service name</th>
+                    <th>IP Address</th>
+                    <th>Port</th>
+                    <th>HealthCheckUrl</th>
+                    <th>Status</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="service in healthStatus.applications.application">
+                    <td>{{service.name}}</td>
+                    <td>{{service.instance.ipAddr}}</td>
+                    <td>{{service.instance.port.$}}</td>
+                    <td>{{service.instance.healthCheckUrl}}</td>
+                    <td>{{service.instance.status}}</td>
+                </tr>
+                </tbody>
+            </table>
+    </row>
 </div>

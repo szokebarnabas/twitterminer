@@ -1,2 +1,3 @@
 /Users/szokebarnabas/IdeaProjects/twitterminer/analytics/src/test/java/com/bs/twitterminer/analytics/infrastrucutre/HashTagExtractorTest.java
-/Users/szokebarnabas/IdeaProjects/twitterminer/analytics/src/test/java/com/bs/twitterminer/analytics/domain/UserHashTagRepositoryTest.java
+/Users/szokebarnabas/IdeaProjects/twitterminer/analytics/src/test/java/com/bs/twitterminer/analytics/domain/UserStatisticsRepositoryTest.java
+/Users/szokebarnabas/IdeaProjects/twitterminer/analytics/src/test/java/com/bs/twitterminer/analytics/infrastrucutre/KeywordStatisticsTest.java
