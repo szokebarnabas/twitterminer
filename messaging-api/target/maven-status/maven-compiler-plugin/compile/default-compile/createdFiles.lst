@@ -1,0 +1,7 @@
+org/bs/messaging/RabbitMessagingServiceImpl.class
+org/bs/messaging/Tweet.class
+org/bs/messaging/StopStreamCommand.class
+org/bs/messaging/MessagingService.class
+org/bs/messaging/StartStreamCommand.class
+org/bs/messaging/JsonMessageSerializer.class
+org/bs/messaging/Config.class

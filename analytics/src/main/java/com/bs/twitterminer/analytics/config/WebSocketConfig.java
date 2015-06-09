@@ -2,7 +2,12 @@ package com.bs.twitterminer.analytics.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.MessageChannel;
+import org.springframework.messaging.simp.config.ChannelRegistration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
+import org.springframework.messaging.support.ChannelInterceptor;
+import org.springframework.messaging.support.ChannelInterceptorAdapter;
 import org.springframework.web.socket.config.annotation.AbstractWebSocketMessageBrokerConfigurer;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
@@ -31,5 +36,15 @@ public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
     public WebSocketConnectionListener presenceEventListener() {
         WebSocketConnectionListener presence = new WebSocketConnectionListener();
         return presence;
+    }
+
+    @Override
+    public void configureClientOutboundChannel(ChannelRegistration registration) {
+        registration.setInterceptors(new ChannelInterceptorAdapter() {
+            @Override
+            public Message<?> preSend(Message<?> message, MessageChannel channel) {
+                return super.preSend(message, channel);
+            }
+        });
     }
 }

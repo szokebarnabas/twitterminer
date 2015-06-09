@@ -8,7 +8,7 @@ import java.util.Date;
 @Component
 public class TweetAssembler {
 
-    public Tweet createTweet(Long statusId, String userName, Date createdAt, String text, String streamId) {
-        return new Tweet(statusId, userName, createdAt, text, streamId);
+    public Tweet createTweet(Long statusId, String userName, Date createdAt, String text, String clientId) {
+        return new Tweet(statusId, userName, createdAt, text, clientId);
     }
 }

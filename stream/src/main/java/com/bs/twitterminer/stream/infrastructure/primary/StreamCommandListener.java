@@ -29,10 +29,10 @@ public class StreamCommandListener {
         String messageType = (String)message.getHeaders().get(MESSAGE_TYPE);
         if (messageType.equals(StartStreamCommand.class.getName())) {
             StartStreamCommand command = jsonMessageSerializer.getObject(message.getPayload(), StartStreamCommand.class);
-            streamService.createStream(command.getStreamId(), command.getKeywords());
+            streamService.createStream(command.getClientId(), command.getKeywords());
         } else if (messageType.equals(StopStreamCommand.class.getName())) {
             StopStreamCommand command = jsonMessageSerializer.getObject(message.getPayload(), StopStreamCommand.class);
-            streamService.deleteStream(command.getStreamId());
+            streamService.deleteStream(command.getClientId());
         }
     }
 

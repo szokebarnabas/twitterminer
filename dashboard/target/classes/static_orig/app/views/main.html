@@ -1,0 +1,45 @@
+<div class="container" ng-controller="MainCtrl">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h4 align="center">Search for tweets</h4>
+
+      <div id="custom-search-input">
+        <div class="input-group col-md-12">
+          <input type="text" class="form-control input" placeholder="Poker" ng-model="newMessage"
+                 ng-keyup="$event.keyCode == 13 ? sendMessage() : startTyping()"/>
+                    <span class="input-group-btn">
+                        <button ng-click="search()" class="btn btn-info btn" type="button">
+                          <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+        </div>
+      </div>
+      <div>
+        {{keywords}}
+      </div>
+    </div>
+  </div>
+  <p/>
+
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Tweets
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped custab">
+          <thead>
+          <tr>
+            <th width="100px">User</th>
+            <th>Comment</th>
+          </tr>
+          </thead>
+          <tr ng-repeat="tweet in tweets">
+            <td>{{tweet.userName}}</td>
+            <td>{{tweet.text}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

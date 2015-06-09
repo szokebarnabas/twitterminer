@@ -16,7 +16,7 @@ public class JsonMessageSerializerTest {
 
     @Autowired
     private JsonMessageSerializer testObj;
-    private static final String JSON_TEXT = "{\"streamId\":\"12345\",\"keywords\":[\"hello\"]}";
+    private static final String JSON_TEXT = "{\"clientId\":\"12345\",\"keywords\":[\"hello\"]}";
 
 
     @Test

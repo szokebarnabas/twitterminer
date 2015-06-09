@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface StreamService {
 
-    void createStream(String streamId, List<String> keywords);
+    void createStream(String clientId, List<String> keywords);
 
-    void deleteStream(String streamId);
+    void deleteStream(String clientId);
 }

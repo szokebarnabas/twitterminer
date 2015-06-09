@@ -20,17 +20,17 @@ public class StreamServiceImpl implements StreamService {
     private MessagingService messagingService;
 
     @Override
-    public void sendStartStreamCommand(String streamId, List<String> keywords) {
-        Preconditions.checkNotNull(streamId);
+    public void sendStartStreamCommand(String clientId, List<String> keywords) {
+        Preconditions.checkNotNull(clientId);
         Preconditions.checkNotNull(keywords);
-        log.info("Start endpoint has been called. UserId = {}, Keywords = {}", streamId, keywords);
-        messagingService.send(COMMANDS_QUEUE, new StartStreamCommand(streamId, keywords));
+        log.info("Start endpoint has been called. clientId = {}, Keywords = {}", clientId, keywords);
+        messagingService.send(COMMANDS_QUEUE, new StartStreamCommand(clientId, keywords));
     }
 
     @Override
-    public void sendStopStreamCommand(String streamId) {
-        Preconditions.checkNotNull(streamId);
-        log.info("Stop endpoint has been called. UserId = {}", streamId);
-        messagingService.send(COMMANDS_QUEUE, new StopStreamCommand(streamId));
+    public void sendStopStreamCommand(String clientId) {
+        Preconditions.checkNotNull(clientId);
+        log.info("Stop endpoint has been called. clientId = {}", clientId);
+        messagingService.send(COMMANDS_QUEUE, new StopStreamCommand(clientId));
     }
 }

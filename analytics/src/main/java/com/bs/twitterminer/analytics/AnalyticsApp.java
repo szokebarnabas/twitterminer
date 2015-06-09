@@ -17,7 +17,6 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan
 @EnableDiscoveryClient
 public class AnalyticsApp {
-
     public static void main(String[] args) {
         SpringApplication.run(AnalyticsApp.class, args);
     }

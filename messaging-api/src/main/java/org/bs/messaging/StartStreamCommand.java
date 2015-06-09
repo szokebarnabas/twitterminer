@@ -12,6 +12,6 @@ import java.util.List;
 @AllArgsConstructor
 public class StartStreamCommand implements Serializable {
 
-    private String streamId;
+    private String clientId;
     private List<String> keywords;
 }

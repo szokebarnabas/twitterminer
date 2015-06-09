@@ -15,5 +15,5 @@ public class Tweet implements Serializable {
     private String userName;
     private Date createdAt;
     private String text;
-    private String streamId;
+    private String clientId;
 }

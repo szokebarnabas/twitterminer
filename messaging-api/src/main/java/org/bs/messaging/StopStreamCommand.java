@@ -10,5 +10,5 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class StopStreamCommand implements Serializable {
-    private String streamId;
+    private String clientId;
 }

@@ -3,10 +3,11 @@ package com.bs.twitterminer.analytics.domain;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.collect.Maps;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.function.BiConsumer;
 
-public class UserHashTags {
+public class UserHashTags implements Serializable {
 
     private Map<String, Long> summarizedHashTags = Maps.newHashMap();
 

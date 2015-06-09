@@ -1,0 +1,7 @@
+/Users/szokebarnabas/IdeaProjects/twitterminer/messaging-api/src/main/java/org/bs/messaging/RabbitMessagingServiceImpl.java
+/Users/szokebarnabas/IdeaProjects/twitterminer/messaging-api/src/main/java/org/bs/messaging/Config.java
+/Users/szokebarnabas/IdeaProjects/twitterminer/messaging-api/src/main/java/org/bs/messaging/JsonMessageSerializer.java
+/Users/szokebarnabas/IdeaProjects/twitterminer/messaging-api/src/main/java/org/bs/messaging/StopStreamCommand.java
+/Users/szokebarnabas/IdeaProjects/twitterminer/messaging-api/src/main/java/org/bs/messaging/MessagingService.java
+/Users/szokebarnabas/IdeaProjects/twitterminer/messaging-api/src/main/java/org/bs/messaging/StartStreamCommand.java
+/Users/szokebarnabas/IdeaProjects/twitterminer/messaging-api/src/main/java/org/bs/messaging/Tweet.java

@@ -32,38 +32,38 @@ public class TwitterStreamServiceImpl implements StreamService {
     private static final String TWEETS_QUEUE = "tweets";
 
     @Override
-    public void createStream(String streamId, List<String> keywords) {
+    public void createStream(String clientId, List<String> keywords) {
         TwitterStream stream;
-        if (streamInstances.containsKey(streamId)) {
-            stream = streamInstances.get(streamId);
+        if (streamInstances.containsKey(clientId)) {
+            stream = streamInstances.get(clientId);
         } else {
-            log.info("Stream {} has been created", streamId);
+            log.info("Stream {} has been created", clientId);
             stream = new TwitterStreamFactory().getInstance();
             stream.addListener(new StatusAdapter() {
                 @Override
                 public void onStatus(Status status) {
-                    Tweet tweet = tweetAssembler.createTweet(status.getId(), status.getUser().getName(), status.getCreatedAt(), status.getText(), streamId);
+                    Tweet tweet = tweetAssembler.createTweet(status.getId(), status.getUser().getName(), status.getCreatedAt(), status.getText(), clientId);
                     messagingService.send(TWEETS_QUEUE, tweet);
                 }
             });
-            streamInstances.put(streamId, stream);
+            streamInstances.put(clientId, stream);
         }
         FilterQuery filterQuery = new FilterQuery();
         filterQuery.track(keywords.toArray(new String[]{}));
         filterQuery.language(new String[]{"en"});
         stream.filter(filterQuery);
-        log.info("Filter criteria of stream {}: {}", streamId, keywords);
+        log.info("Filter criteria of stream {}: {}", clientId, keywords);
     }
 
     @Override
-    public void deleteStream(String streamId) {
-        Preconditions.checkNotNull(streamId);
-        if (streamInstances.containsKey(streamId)) {
-            TwitterStream stream = streamInstances.remove(streamId);
+    public void deleteStream(String clientId) {
+        Preconditions.checkNotNull(clientId);
+        if (streamInstances.containsKey(clientId)) {
+            TwitterStream stream = streamInstances.remove(clientId);
             stream.cleanUp();
-            log.info("Stream {} has been deleted.", streamId);
+            log.info("Stream {} has been deleted.", clientId);
         } else {
-            log.warn("Stream {} has not been found.", streamId);
+            log.warn("Stream {} has not been found.", clientId);
         }
     }
 }
