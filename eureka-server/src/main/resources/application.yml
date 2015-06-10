@@ -8,3 +8,6 @@ eureka:
     fetchRegistry: false
     server:
       waitTimeInMsWhenSyncEmpty: 0
+
+logging:
+    file: eureka-server.log

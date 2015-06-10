@@ -132,8 +132,13 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!-- defined in spring-cloud-starter-parent pom (as documentation hint),
-                    but needs to be repeated here -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
                     <requiresUnpack>
                         <dependency>

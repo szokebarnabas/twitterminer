@@ -13,6 +13,9 @@ eureka:
     serviceUrl:
       defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
 
+
+logging:
+    file: dashboard-service.log
 ---
 spring:
   profiles: cloud

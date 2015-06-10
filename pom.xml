@@ -14,7 +14,6 @@
         <module>stream</module>
         <module>eureka-server</module>
         <module>messaging-api</module>
-        <module>api-gateway</module>
     </modules>
 
     <properties>
