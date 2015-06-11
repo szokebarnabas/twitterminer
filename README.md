@@ -31,7 +31,7 @@ TwitterMiner
 
 ###Front-end###
 - AngularJS
-- Twitter Bootstrap CSS
+- Twitter Bootstrap
 - FlatUI
 - Yeoman
 - Bower
