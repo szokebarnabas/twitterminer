@@ -57,7 +57,7 @@ Links nodes of a distributed system with a lightweight message broker. This can 
 ####Zuul####
 Zuul is an edge service that provides dynamic routing, monitoring, resiliency, security
 
-Eureka
+####Eureka####
 AWS Service registry for resilient mid-tier load balancing and failover
 
 ##Architecture##
@@ -70,3 +70,9 @@ AWS Service registry for resilient mid-tier load balancing and failover
 ##Supporting services###
 - Eureka: service discovery
 - Zuul (part of the Dashboard service): API gateway
+
+![Alt text](images/services.jpg?raw=true "Flow")
+
+##The application##
+
+![Alt text](images/main.jpg?raw=true "Flow")
