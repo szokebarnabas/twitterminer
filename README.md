@@ -75,4 +75,6 @@ AWS Service registry for resilient mid-tier load balancing and failover
 
 ##The application##
 
+You can try the application here: http://52.5.10.150:8090/#/
 ![Alt text](images/main.jpg?raw=true "Flow")
+
