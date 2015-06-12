@@ -90,7 +90,7 @@ AWS Service registry for resilient mid-tier load balancing and failover
 
 ####JMS####
 - message queue: analytics service sends start/stop stream commands to the stream service with the keywords
-- tweet queue: the stream service sends tweets messages the the analytics
+- tweet queue: the stream service sends tweets messages the the analytics service
  
 ####Websocket####
 - between the dashboard service and the analytics service
