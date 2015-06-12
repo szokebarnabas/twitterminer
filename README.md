@@ -71,7 +71,7 @@ AWS Service registry for resilient mid-tier load balancing and failover
 ####Websocket####
 - between the dashboard service and the analytics service
 
-####RESTFul webservice####
+####RESTFul web service####
 - UI sends healthcheck requests to the Eureka via the Zuul message gateway
 
 ##Microservices###
