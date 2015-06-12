@@ -77,6 +77,15 @@ AWS Service registry for resilient mid-tier load balancing and failover
 
 ##Architecture##
 
+##Microservices###
+- Dashboard: User interface
+- Analytics: Operates on the incoming tweets
+- Stream: Handles twitter streams
+
+##Supporting services###
+- Eureka: service discovery
+- Zuul (part of the Dashboard service): API gateway
+
 ### Messaging ###
 
 ####JMS####
@@ -88,15 +97,6 @@ AWS Service registry for resilient mid-tier load balancing and failover
 
 ####RESTFul web service####
 - UI sends healthcheck requests to the Eureka via the Zuul message gateway
-
-##Microservices###
-- Dashboard: User interface
-- Analytics: Operates on the incoming tweets
-- Stream: Handles twitter streams
-
-##Supporting services###
-- Eureka: service discovery
-- Zuul (part of the Dashboard service): API gateway
 
 ![Alt text](images/services.jpg?raw=true "Flow")
 
