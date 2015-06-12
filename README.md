@@ -63,12 +63,15 @@ AWS Service registry for resilient mid-tier load balancing and failover
 ##Architecture##
 
 ### Messaging ###
-##JMS##
+
+####JMS####
 - message queue: analytics service sends start/stop stream commands to the stream service with the keywords
 - tweet queue: the stream service sends tweets messages the the analytics
-##Websocket##
+ 
+####Websocket####
 - between the dashboard service and the analytics service
-##RESTFul webservice##
+
+####RESTFul webservice####
 - UI sends healthcheck requests to the Eureka via the Zuul message gateway
 
 ##Microservices###
