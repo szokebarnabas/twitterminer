@@ -1,6 +1,21 @@
 TwitterMiner
 ============
 
+## The task ##
+The task is to create a **web application** that, using **Twitter's API**, taps the **real-time stream of tweets** and filters for those which contains user provided words. **Each user has its own set of search criteria**.
+The app should display both **the stream of tweets** and the **statistics of hashTags** extracted from the tweets containing the provided filter words in a moving window fashion.
+
+Search for "poker tournament" should show every tweet which has either **poker** or **tournament** in the content text:
+```
+bla bla bla poker blab bla #Casino #Poker
+bla blu blabal tournament blabala #Poker
+```
+Those 2 tweet should be displayed and they should be used to extract hasTag infos.
+```
+#Poker, 2
+#Casino, 1
+```
+
 ##Design principles###
 
 - Microservices architecture pattern
